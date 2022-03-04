@@ -64,9 +64,9 @@ function data2HTML (taskName, completed) {
     return taskHTML
 }
 
-function taskListHTML () {
+function taskListHTML (taskArray) {
     let HTMLtext = "";
-    for ( let item of tasks ) {
+    for ( let item of taskArray ) {
         const HTMLelemento = data2HTML(item.taskName, item.completed)
         HTMLtext += HTMLelemento;
     }
@@ -75,7 +75,7 @@ function taskListHTML () {
 
 function insertTasksHTML () {
     const ul = document.querySelector("#tasksList");
-    ul.innerHTML = taskListHTML();
+    ul.innerHTML = taskListHTML(tasks);
 }
 
 window.addEventListener('load',insertTasksHTML)
